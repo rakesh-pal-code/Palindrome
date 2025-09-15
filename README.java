@@ -1,28 +1,49 @@
- import java.util.Scanner;
+import java.util.Scanner;
 
-public class PalindromeCheck {
+public class SimpleCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-      
-        System.out.print("Enter a number: ");
-        int number = sc.nextInt();
+        // Input numbers
+        System.out.print("Enter first number: ");
+        double num1 = sc.nextDouble();
 
-        int original = number;
-        int reversed = 0;
+        System.out.print("Enter second number: ");
+        double num2 = sc.nextDouble();
 
-      
-        while (number != 0) {
-            int digit = number % 10;
-            reversed = reversed * 10 + digit;
-            number /= 10;
-        }
+        // Menu
+        System.out.println("Choose an operation: ");
+        System.out.println("1. Addition (+)");
+        System.out.println("2. Subtraction (-)");
+        System.out.println("3. Multiplication (*)");
+        System.out.println("4. Division (/)");
 
-      
-        if (original == reversed) {
-            System.out.println(original + " is a Palindrome.");
-        } else {
-            System.out.println(original + " is NOT a Palindrome.");
+        int choice = sc.nextInt();
+        double result = 0;
+
+        switch (choice) {
+            case 1:
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case 2:
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            case 3:
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+            case 4:
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                } else {
+                    System.out.println("Error! Division by zero.");
+                }
+                break;
+            default:
+                System.out.println("Invalid choice!");
         }
 
         sc.close();
